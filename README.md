@@ -1,1 +1,1 @@
-# aws_dynamodb
+# aws-dynamodb
