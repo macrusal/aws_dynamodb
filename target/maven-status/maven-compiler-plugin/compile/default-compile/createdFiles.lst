@@ -1,0 +1,9 @@
+br/com/hibejix/amazonaws/dynamodb/serverless/handler/produtos/GetProdutosHandler.class
+br/com/hibejix/amazonaws/dynamodb/serverless/handler/produtos/ListProdutosHandler.class
+br/com/hibejix/amazonaws/dynamodb/adapter/DynamoDBAdapter.class
+br/com/hibejix/amazonaws/dynamodb/serverless/handler/produtos/DeleteProdutosHandler.class
+br/com/hibejix/amazonaws/dynamodb/serverless/ApiGatewayResponse$Builder.class
+br/com/hibejix/amazonaws/dynamodb/serverless/Response.class
+br/com/hibejix/amazonaws/dynamodb/serverless/ApiGatewayResponse.class
+br/com/hibejix/amazonaws/dynamodb/entity/Produtos.class
+br/com/hibejix/amazonaws/dynamodb/serverless/handler/produtos/CreateProdutosHandler.class

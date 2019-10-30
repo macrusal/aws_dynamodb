@@ -1,0 +1,89 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: aws-hibejix
+
+custom:
+  produtosTableName: 'table/produtos-${self:provider.stage}'
+
+provider:
+  name: aws
+  runtime: java8
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-2'}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - { "Fn::GetAtt": ["ProdutosDynamoDBTable", "Arn" ] }
+  environment:
+    PRODUTOS: ${self:custom.produtos}
+
+package:
+  artifact: 'target/${self:service}-${self:provider.stage}.jar'
+
+functions:
+  listProduto:
+    handler: br.com.hibejix.amazonaws.dynamodb.serverless.handler.produtos.ListProdutosHandler
+    events:
+      - http:
+          path: /produtos
+          method: get
+  getProduto:
+    handler: br.com.hibejix.amazonaws.dynamodb.serverless.handler.produtos.GetProdutosHandler
+    events:
+      - http:
+          path: /produtos/{id}
+          method: get
+  createProduto:
+    handler: br.com.hibejix.amazonaws.dynamodb.serverless.handler.produtos.CreateProdutosHandler
+    events:
+      - http:
+          path: /produtos
+          method: post
+  deleteProduto:
+    handler: br.com.hibejix.amazonaws.dynamodb.serverless.handler.produtos.DeleteProdutosHandler
+    events:
+      - http:
+          path: /produtos/{id}
+          method: delete
+
+resources:
+  Resources:
+    ProdutosDynamoDBTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.produtos}
+        AttributeDefinitions:
+          - AttributeName: uuid
+            AttributeType: S
+          - AttributeName: nome
+            AttributeType: S
+          - AttributeName: precoCompra
+            AttributeType: S
+          - AttributeName: precoVenda
+            AttributeType: S
+          - AttributeName: precoSugerido
+            AttributeType: S
+        KeySchema:
+          - AttributeName: uuid
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

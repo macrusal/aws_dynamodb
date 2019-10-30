@@ -1,0 +1,8 @@
+/Users/marcelo/desenvolvimento/workspace/java/aws-hibejix/src/main/java/br/com/hibejix/amazonaws/dynamodb/entity/Produtos.java
+/Users/marcelo/desenvolvimento/workspace/java/aws-hibejix/src/main/java/br/com/hibejix/amazonaws/dynamodb/serverless/handler/produtos/GetProdutosHandler.java
+/Users/marcelo/desenvolvimento/workspace/java/aws-hibejix/src/main/java/br/com/hibejix/amazonaws/dynamodb/serverless/handler/produtos/CreateProdutosHandler.java
+/Users/marcelo/desenvolvimento/workspace/java/aws-hibejix/src/main/java/br/com/hibejix/amazonaws/dynamodb/serverless/Response.java
+/Users/marcelo/desenvolvimento/workspace/java/aws-hibejix/src/main/java/br/com/hibejix/amazonaws/dynamodb/adapter/DynamoDBAdapter.java
+/Users/marcelo/desenvolvimento/workspace/java/aws-hibejix/src/main/java/br/com/hibejix/amazonaws/dynamodb/serverless/handler/produtos/DeleteProdutosHandler.java
+/Users/marcelo/desenvolvimento/workspace/java/aws-hibejix/src/main/java/br/com/hibejix/amazonaws/dynamodb/serverless/handler/produtos/ListProdutosHandler.java
+/Users/marcelo/desenvolvimento/workspace/java/aws-hibejix/src/main/java/br/com/hibejix/amazonaws/dynamodb/serverless/ApiGatewayResponse.java
